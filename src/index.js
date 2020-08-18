@@ -1,18 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route} from 'react-router-dom';
+import { BrowserRouter, Route, Link} from 'react-router-dom';
 
 import Home from './components/home';
 import Profile from './components/profile';
 import Post from './components/post';
+import PostItem from './components/post_item';
 
 const App = () => {
   return(
     <BrowserRouter>
       <div>
-        <Route exact path="/"   component={Home}/>
-        <Route path="/profile"  component={Profile}/>
-        <Route path="/posts"    component={Post}/>
+        <header>
+          <Link to="/">Home Page</Link> <br/><br/>
+          <Link to="/profile">My Profile </Link> <br/><br/>
+          <hr/>
+        </header>
+        <Route path="/" exact component={Home}/>
+        <Route path="/profile" exact component={Profile}/>
+        <Route path="/profile/posts/:id/:username" component={Post}/>
+        <Route path="/profile/posts" exact component={PostItem}/>
       </div>
     </BrowserRouter>
   )
