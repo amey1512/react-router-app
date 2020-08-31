@@ -6,20 +6,23 @@ import Home from './components/home';
 import Profile from './components/profile';
 import Post from './components/post';
 import PostItem from './components/post_item';
+import LifeCycle from './components/lifecycle';
 
 const App = () => {
   return(
     <BrowserRouter>
       <div>
         <header>
-          <Link to="/">Home Page</Link> <br/><br/>
-          <Link to="/profile">My Profile </Link> <br/><br/>
+          <Link to="/">Home Page</Link><br/><br/>
+          <Link to="/profile">My Profile</Link><br/><br/>
+          <Link to="/lifecycle">Life Cycle</Link><br/><br/>
           <hr/>
         </header>
         <Switch>
           <Route path="/profile/posts/:id/:username" component={Post}/>
           <Route path="/profile/posts" component={PostItem}/>
           <Route path="/profile" component={Profile}/>
+          <Route path="/lifecycle" component={LifeCycle}/>
           <Route path="/" component={Home}/>
         </Switch>
       </div>
